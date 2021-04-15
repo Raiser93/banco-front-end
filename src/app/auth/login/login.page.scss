@@ -1,0 +1,21 @@
+ion-img {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-login {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .box-form {
+        width: 100%;
+    }
+}
+
+.box-message-validator {
+    p {
+        font-size: 12px;
+        margin: 0;
+    }
+}

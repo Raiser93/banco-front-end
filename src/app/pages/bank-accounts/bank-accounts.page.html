@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar color="warning">
+        <ion-title>Cuentas Bancarias</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list >
+        
+        <ion-item class="ion-text-wrap" lines="full">
+            <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
+            <div class="box-main-detail">
+                <div>
+                    <ion-label>
+                        <ion-text color="primary">
+                            <h3>Tipo: Ahorros</h3>
+                        </ion-text>
+                        <p>
+                            <strong># Cuenta:</strong> 12345678901
+                        </p>
+                        <ion-text color="secondary">
+                            <p>
+                                <strong>Saldo:</strong> {{1500000 | currency:'USD'}}
+                            </p>
+                        </ion-text>
+                    </ion-label>
+                </div>
+    
+                <div>
+                    <ion-label>
+                        <ion-text color="primary">
+                            <h3>Tipo: Ahorros</h3>
+                        </ion-text>
+                        <ion-text color="secondary">
+                            <p>
+                                <strong>Saldo:</strong> 1500000
+                            </p>
+                        </ion-text>
+                    </ion-label>
+                </div>
+            </div>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="openModalCreateAccount()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Crear Cuenta Bancaria</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">
+                Cerrar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="bankAccountForm" (ngSubmit)="createAccount()">
+        <ion-item>
+            <ion-label position="floating">Numero de cuenta <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="num_account" type="number" (keyup)="intToString('num_account')"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo de cuenta <ion-text color="danger">*</ion-text></ion-label>
+            <ion-select formControlName="type_account">
+                <ion-select-option value="SAVINGS_ACCOUNT">Ahorros</ion-select-option>
+                <ion-select-option value="CURRENT_ACCOUNT">Corriente</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Saldo Inicial <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input
+                formControlName="balance_account"
+                type="number"
+            ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo de moneda <ion-text color="danger">*</ion-text></ion-label>
+            <ion-select formControlName="type_currency">
+                <ion-select-option value="CO">Peso Colombiano</ion-select-option>
+                <ion-select-option value="USD">Dolar Estadounidense</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-button expand="full" color="primary" type="submit" [disabled]="bankAccountForm.invalid" class="ion-margin-top">
+            Crear
+        </ion-button>
+    </form>
+</ion-content>

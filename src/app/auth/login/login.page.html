@@ -1,0 +1,53 @@
+<ion-content class="ion-padding ion-align-items-center" color="warning">
+    <div class="box-login">
+        <div class="box-form">
+            <ion-img  class="ion-margin-bottom" src="assets/img/logo.png"></ion-img>
+            <form [formGroup]="loginForm" #form="ngForm" class="ion-text-center" (ngSubmit)="login(form)">
+                
+
+                <ion-item color="warning">
+                    <ion-label position="stacked">Correo</ion-label>
+                    <ion-input
+                        type="email"
+                        formControlName="email"
+                        ></ion-input>
+                    
+                </ion-item>
+                <div
+                    *ngIf="loginForm.get('email').invalid && loginForm.get('email').errors && (loginForm.get('email').dirty || loginForm.get('email').touched)"
+                    class="ion-text-left box-message-validator">
+                    <ng-container *ngFor="let validation of validationMessage.email">
+                        <ion-text color="danger" *ngIf="loginForm.get('email').hasError(validation.type)">
+                            <p>{{ validation.message }}</p>
+                        </ion-text>
+                    </ng-container>
+                </div>
+        
+                <ion-item color="warning" class="ion-margin-top">
+                    <ion-label position="stacked">Contraseña</ion-label>
+                    <ion-input
+                        type="password"
+                        formControlName="password"
+                        ></ion-input>
+                </ion-item>
+                <div
+                    *ngIf="loginForm.get('password').invalid && loginForm.get('password').errors && (loginForm.get('password').dirty || loginForm.get('password').touched)"
+                    class="ion-text-left box-message-validator">
+                    <ng-container *ngFor="let validation of validationMessage.password">
+                        <ion-text color="danger" *ngIf="loginForm.get('password').hasError(validation.type)">
+                            <p>{{ validation.message }}</p>
+                        </ion-text>
+                    </ng-container>
+                </div>
+        
+                <ion-button class="ion-margin-top" expand="full" color="dark" type="submit" [disabled]="form.invalid">
+                    Iniciar Sesion
+                </ion-button>
+                
+                <a [routerLink]="['/register']"  class="ion-margin-top">
+                    Crear Cuenta
+                </a>
+            </form>
+        </div>
+    </div>
+</ion-content>
