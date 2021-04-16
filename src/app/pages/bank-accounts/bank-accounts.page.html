@@ -7,14 +7,13 @@
 <ion-content>
 
     <ion-list >
-        
-        <ion-item class="ion-text-wrap" lines="full">
+        <ion-item class="ion-text-wrap" lines="full" *ngFor="let account of listAccounts">
             <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
             <div class="box-main-detail">
                 <div>
                     <ion-label>
                         <ion-text color="primary">
-                            <h3>Tipo: Ahorros</h3>
+                            <h3>Tipo: {{ account.type_account |  }}</h3>
                         </ion-text>
                         <p>
                             <strong># Cuenta:</strong> 12345678901

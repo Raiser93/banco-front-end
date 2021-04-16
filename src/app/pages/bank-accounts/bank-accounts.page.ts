@@ -10,6 +10,8 @@ import { BankAccountService } from '../../services/bank-account/bank-account.ser
 })
 export class BankAccountsPage implements ViewDidEnter {
 
+    listAccounts = [];
+
     constructor(
         private menuCtrl: MenuController,
         private modalCtrl: ModalController,
@@ -20,6 +22,7 @@ export class BankAccountsPage implements ViewDidEnter {
         this.menuCtrl.close();
         this.bankAccountService.queryAccountUser().subscribe(accounts => {
             console.log(accounts);
+            this.listAccounts = accounts;
         });
     }
 
@@ -33,6 +36,7 @@ export class BankAccountsPage implements ViewDidEnter {
                 console.log(data);
                 this.bankAccountService.createAccount(data).subscribe(resp => {
                     console.log(resp);
+                    this.listAccounts.push(...resp);
                 })
             }
         });
