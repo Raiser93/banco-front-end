@@ -1,39 +1,46 @@
-<ion-header>
+<ion-header class="ion-no-border">
     <ion-toolbar color="warning">
         <ion-title>Cuentas Bancarias</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-segment [value]="typeAccountView" (ionChange)="segmentChanged($event)" color="light">
+    <ion-segment-button value="savings">
+        <ion-label color="light">Ahorros</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="current">
+        <ion-label color="light">Corrientes</ion-label>
+    </ion-segment-button>
+</ion-segment>
 
-    <ion-list >
-        <ion-item class="ion-text-wrap" lines="full" *ngFor="let account of listAccounts">
-            <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
+<ion-content color="dark">
+
+    <ion-list color="dark" class="ion-no-padding">
+        <ion-item class="ion-text-wrap" lines="full" *ngFor="let account of listAccounts" color="dark">
+            <ion-icon
+                (click)="openActionSheetDetailAccount(account)"
+                name="ellipsis-vertical-outline"
+                slot="end"></ion-icon>
             <div class="box-main-detail">
                 <div>
                     <ion-label>
                         <ion-text color="primary">
-                            <h3>Tipo: {{ account.type_account |  }}</h3>
+                            <h3>Tipo: {{ account.type_account | typeAccountTranslate }}</h3>
                         </ion-text>
                         <p>
-                            <strong># Cuenta:</strong> 12345678901
+                            <strong># Cuenta:</strong> {{ account.num_account }}
                         </p>
-                        <ion-text color="secondary">
-                            <p>
-                                <strong>Saldo:</strong> {{1500000 | currency:'USD'}}
-                            </p>
-                        </ion-text>
                     </ion-label>
                 </div>
     
                 <div>
                     <ion-label>
-                        <ion-text color="primary">
-                            <h3>Tipo: Ahorros</h3>
-                        </ion-text>
                         <ion-text color="secondary">
                             <p>
-                                <strong>Saldo:</strong> 1500000
+                                <strong>Saldo:</strong> {{ account.balance_account | currency:account.type_currency }}
                             </p>
                         </ion-text>
                     </ion-label>
@@ -43,10 +50,19 @@
 
     </ion-list>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button (click)="openModalCreateAccount()">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
+    
 
+    
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar color="dark">
+        <ion-title>Saldo total: </ion-title>
+    </ion-toolbar>
+</ion-footer>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModalCreateAccount()" color="warning">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
