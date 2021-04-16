@@ -26,9 +26,8 @@ export class BankAccountService {
             ...credentials,
             userId: Number(this.userService.userId)
         }).pipe(
-            map(resp => {
-                console.log(resp);
-                return true;
+            map((resp: any) => {
+                return resp.account;
             }),
             catchError(err => {
                 console.error(err);
@@ -38,7 +37,7 @@ export class BankAccountService {
     }
 
     queryAccountUser() {
-        const url = `${environment.urlRest}accounts-user-id/${this.userService.userId}`;
+        const url = `${environment.urlRest}bank/accounts-user-id/${this.userService.userId}`;
         return this.http.get(url, {
             headers: {
                 'x-token': this.userService.token
