@@ -20,6 +20,10 @@ const routes: Routes = [{
         {
             path: 'bank-accounts',
             loadChildren: () => import('./bank-accounts/bank-accounts.module').then( m => m.BankAccountsPageModule)
+        },
+        {
+            path: 'third-bank-accounts',
+            loadChildren: () => import('./third-bank-accounts/third-bank-accounts.module').then( m => m.ThirdBankAccountsPageModule)
         }
     ]
 }];
