@@ -65,4 +65,19 @@ export class UserService {
         );
     }
 
+    // Registrar un usuario
+    register(credentials) {
+        const url = `${environment.urlRest}user/register`;
+        return this.http.post(url, credentials).pipe(
+            map((resp: any) => {
+                this.saveStorage(resp.token, resp.id);
+                return true;
+            }),
+            catchError(err => {
+                console.error(err);
+                return throwError(err);
+            })
+        )
+    }
+
 }

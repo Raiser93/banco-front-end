@@ -5,11 +5,14 @@ import { TypeAccountTranslatePipe } from './type-account-translate/type-account-
 
 
 @NgModule({
-  declarations: [
-    TypeAccountTranslatePipe
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        TypeAccountTranslatePipe
+    ],
+    imports: [
+        CommonModule
+    ],
+    exports: [
+        TypeAccountTranslatePipe
+    ]
 })
-export class PipesModule { }
+export class PipesModule {}
