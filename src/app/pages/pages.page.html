@@ -1,7 +1,7 @@
 <ion-split-pane contentId="menu-content">
     <ion-menu contentId="menu-content" side="end">
-        <ion-header>
-            <ion-toolbar>
+        <ion-header class="ion-no-border">
+            <ion-toolbar color="warning">
                 <ion-title>Banco</ion-title>
                 <ion-buttons slot="start">
                     <ion-button icon-only (click)="closeModal()">
@@ -10,16 +10,21 @@
                 </ion-buttons>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <ion-content color="dark">
             
-            <ion-list>
+            <ion-list class="ion-no-padding">
                 
-                <ion-item [routerLink]="['bank-accounts']">
+                <ion-item [routerLink]="['bank-accounts']" color="dark">
                     <ion-icon slot="start" name="newspaper-outline"></ion-icon>
-                    <ion-label>Cuentas Bancarias</ion-label>
+                    <ion-label>Cuentas Bancarias Propias</ion-label>
                 </ion-item>
                 
-                <ion-item>
+                <ion-item [routerLink]="['third-bank-accounts']" color="dark">
+                    <ion-icon slot="start" name="newspaper-outline"></ion-icon>
+                    <ion-label>Cuentas Bancarias de Terceros</ion-label>
+                </ion-item>
+                
+                <ion-item color="dark">
                     <ion-icon slot="start" name="log-out-outline"></ion-icon>
                     <ion-label>Cerrar sesion</ion-label>
                 </ion-item>
