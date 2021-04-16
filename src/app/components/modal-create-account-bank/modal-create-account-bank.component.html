@@ -1,5 +1,5 @@
-<ion-header>
-    <ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar color="warning">
         <ion-title>Crear Cuenta Bancaria</ion-title>
         <ion-buttons slot="end">
             <ion-button (click)="closeModal()">
@@ -9,11 +9,11 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
     <form [formGroup]="bankAccountForm" (ngSubmit)="createAccount()">
         <ion-item>
             <ion-label position="floating">Numero de cuenta <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="num_account" type="number" (keyup)="intToString('num_account')"></ion-input>
+            <ion-input required formControlName="num_account" type="text"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Tipo de cuenta <ion-text color="danger">*</ion-text></ion-label>

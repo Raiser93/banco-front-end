@@ -19,6 +19,7 @@ export class ModalCreateAccountBankComponent {
                 Validators.required,
                 Validators.minLength(11),
                 Validators.maxLength(11),
+                Validators.pattern('[0-9]*')
             ])),
             type_account: new FormControl('SAVINGS_ACCOUNT', Validators.compose([
                 Validators.required
