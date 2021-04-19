@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ModalCreateAccountBankComponent } from './modal-create-account-bank/modal-create-account-bank.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalAccountsThirdComponent } from './modal-accounts-third/modal-accounts-third.component';
 
 
 
 @NgModule({
   declarations: [
-    ModalCreateAccountBankComponent
+    ModalCreateAccountBankComponent,
+    ModalAccountsThirdComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    ModalCreateAccountBankComponent
+    ModalCreateAccountBankComponent,
+    ModalAccountsThirdComponent
   ]
 })
 export class ComponentsModule { }
