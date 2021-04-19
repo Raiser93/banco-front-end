@@ -14,14 +14,19 @@
             
             <ion-list class="ion-no-padding">
                 
-                <ion-item [routerLink]="['bank-accounts']" color="dark">
+                <ion-item (click)="goRouter('bank-accounts')" color="dark">
                     <ion-icon slot="start" name="newspaper-outline"></ion-icon>
                     <ion-label>Cuentas Bancarias Propias</ion-label>
                 </ion-item>
                 
-                <ion-item [routerLink]="['third-bank-accounts']" color="dark">
+                <ion-item (click)="goRouter('third-bank-accounts')" color="dark">
                     <ion-icon slot="start" name="newspaper-outline"></ion-icon>
                     <ion-label>Cuentas Bancarias de Terceros</ion-label>
+                </ion-item>
+                
+                <ion-item (click)="goRouter('qr-action')" color="dark">
+                    <ion-icon slot="start" name="qr-code"></ion-icon>
+                    <ion-label>Acciones QR</ion-label>
                 </ion-item>
                 
                 <ion-item color="dark">

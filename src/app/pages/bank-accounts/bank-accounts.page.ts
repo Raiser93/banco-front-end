@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewDidEnter, MenuController, ModalController, ActionSheetController } from '@ionic/angular';
+import { ViewDidEnter, MenuController, ModalController, ActionSheetController, ToastController } from '@ionic/angular';
 import { ModalCreateAccountBankComponent } from '../../components/modal-create-account-bank/modal-create-account-bank.component';
 import { BankAccountService } from '../../services/bank-account/bank-account.service';
 
@@ -17,7 +17,8 @@ export class BankAccountsPage implements ViewDidEnter {
         private menuCtrl: MenuController,
         private modalCtrl: ModalController,
         private bankAccountService: BankAccountService,
-        private actionSheetCtrl: ActionSheetController
+        private actionSheetCtrl: ActionSheetController,
+        private toastCtrl: ToastController
     ) {}
 
     ionViewDidEnter() {
@@ -25,6 +26,11 @@ export class BankAccountsPage implements ViewDidEnter {
         this.bankAccountService.queryAccountUser().subscribe(accounts => {
             console.log(accounts);
             this.listAccounts = accounts;
+        }, err => {
+            console.error(err);
+            this.toastMessage({
+                msg: err.msg || 'Ocurrio un error al obtener la cuentas bancarias'
+            });
         });
     }
 
@@ -39,7 +45,11 @@ export class BankAccountsPage implements ViewDidEnter {
                 this.bankAccountService.createAccount(data).subscribe(resp => {
                     console.log(resp);
                     this.listAccounts.push(resp);
-                })
+                }, err => {
+                    this.toastMessage({
+                        msg: err.msg || 'Ocurrio un error al crear una cuenta bancaria'
+                    });
+                });
             }
         });
 
@@ -66,5 +76,14 @@ export class BankAccountsPage implements ViewDidEnter {
 
     segmentChanged(ev) {
         console.log(ev);
+    }
+
+    async toastMessage({msg}: {msg: string}) {
+        const toast = await this.toastCtrl.create({
+            message: msg,
+            duration: 2000
+        });
+
+        toast.present();
     }
 }

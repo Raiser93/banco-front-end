@@ -7,15 +7,6 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-segment [value]="typeAccountView" (ionChange)="segmentChanged($event)" color="light">
-    <ion-segment-button value="savings">
-        <ion-label color="light">Ahorros</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="current">
-        <ion-label color="light">Corrientes</ion-label>
-    </ion-segment-button>
-</ion-segment>
-
 <ion-content color="dark">
 
     <ion-list color="dark" class="ion-no-padding">
@@ -54,12 +45,6 @@
 
     
 </ion-content>
-
-<ion-footer class="ion-no-border">
-    <ion-toolbar color="dark">
-        <ion-title>Saldo total: </ion-title>
-    </ion-toolbar>
-</ion-footer>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="openModalCreateAccount()" color="warning">

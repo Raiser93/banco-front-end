@@ -1,9 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>third-bank-accounts</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar color="warning">
+        <ion-title>Cuentas de terceros</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
+    
+    <ion-list color="dark" class="ion-no-padding">
+
+        <ion-item
+            class="ion-text-wrap"
+            lines="full"
+            color="dark"
+            *ngFor="let account of (subAccountsThird | async)">
+
+            <ion-icon
+                (click)="openActionSheetDetailAccount(account)"
+                name="ellipsis-vertical-outline"
+                slot="end"></ion-icon>
+
+            <div class="box-main-detail">
+
+                <div>
+                    <ion-label>
+                        Alias: {{ account.alias }}
+                    </ion-label>
+
+                    <ion-label>
+                        <strong># Cuenta:</strong> {{ account.num_account }}
+                    </ion-label>
+                </div>
+
+            </div>
+
+            <ion-label>
+                {{ account.alias }}
+            </ion-label>
+
+        </ion-item>
+
+    </ion-list>
 
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModalCreateAccountThird()" color="warning">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesPage } from './pages.page';
-import { HomePage } from './home/home.page';
 
 const routes: Routes = [{
     path: '',
@@ -24,6 +23,10 @@ const routes: Routes = [{
         {
             path: 'third-bank-accounts',
             loadChildren: () => import('./third-bank-accounts/third-bank-accounts.module').then( m => m.ThirdBankAccountsPageModule)
+        },
+        {
+            path: 'qr-action',
+            loadChildren: () => import('./qr-action/qr-action.module').then( m => m.QrActionPageModule)
         }
     ]
 }];
