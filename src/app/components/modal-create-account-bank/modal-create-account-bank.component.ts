@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BankAccountService } from 'src/app/services/bank-account/bank-account.service';
 
 @Component({
     selector: 'app-modal-create-account-bank',
@@ -12,7 +13,8 @@ export class ModalCreateAccountBankComponent {
     bankAccountForm: FormGroup;
 
     constructor(
-        private modalCtrl: ModalController
+        private modalCtrl: ModalController,
+        private bankAccountService: BankAccountService
     ) {
         this.bankAccountForm = new FormGroup({
             num_account: new FormControl(null, Validators.compose([

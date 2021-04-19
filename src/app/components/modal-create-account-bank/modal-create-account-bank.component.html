@@ -11,25 +11,25 @@
 
 <ion-content color="dark">
     <form [formGroup]="bankAccountForm" (ngSubmit)="createAccount()">
-        <ion-item>
+        <ion-item color="dark">
             <ion-label position="floating">Numero de cuenta <ion-text color="danger">*</ion-text></ion-label>
             <ion-input required formControlName="num_account" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item color="dark">
             <ion-label>Tipo de cuenta <ion-text color="danger">*</ion-text></ion-label>
             <ion-select formControlName="type_account">
                 <ion-select-option value="SAVINGS_ACCOUNT">Ahorros</ion-select-option>
                 <ion-select-option value="CURRENT_ACCOUNT">Corriente</ion-select-option>
             </ion-select>
         </ion-item>
-        <ion-item>
+        <ion-item color="dark">
             <ion-label position="floating">Saldo Inicial <ion-text color="danger">*</ion-text></ion-label>
             <ion-input
                 formControlName="balance_account"
                 type="number"
             ></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item color="dark">
             <ion-label>Tipo de moneda <ion-text color="danger">*</ion-text></ion-label>
             <ion-select formControlName="type_currency">
                 <ion-select-option value="CO">Peso Colombiano</ion-select-option>
